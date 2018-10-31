@@ -1,0 +1,43 @@
+{"type":"press any key prompt","data":{"displayed text":"LTP999
+session 0","participant 1":"LTP999","experiment":"VFFR"},"time":1535634662220.41}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1535634664036.97}
+{"type":"press any key prompt","data":{"displayed text":"Researcher:
+Please confirm that the 
+impedance window is closed
+and that sync pulses are showing","participant 1":"LTP999","experiment":"VFFR"},"time":1535634664053.56}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1535634664753.54}
+{"type":"press any key prompt","data":{"displayed text":"Researcher:
+Please begin the EEG recording now
+and confirm that it is running.","participant 1":"LTP999","experiment":"VFFR"},"time":1535634664770.37}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1535634667786.95}
+{"type":"microphone test begin","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1535634667786.95}
+{"type":"press any key prompt","data":{"displayed text":"Press the spacebar to record a sound after the beep.","participant 1":"LTP999","experiment":"VFFR"},"time":1535634667820.27}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1535634668903.14}
+{"type":"microphone test recording","data":{"displayed text":"Recording...","participant 1":"LTP999","experiment":"VFFR"},"time":1535634668903.14}
+{"type":"text color changed","data":{"new color":"RGBA(1.000, 0.000, 0.000, 1.000)","participant 1":"LTP999","experiment":"VFFR"},"time":1535634668903.14}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1535634674419.98}
+{"type":"microphone test playing","data":{"displayed text":"Playing...","participant 1":"LTP999","experiment":"VFFR"},"time":1535634675420.2}
+{"type":"text color changed","data":{"new color":"RGBA(0.000, 1.000, 0.000, 1.000)","participant 1":"LTP999","experiment":"VFFR"},"time":1535634675420.2}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1535634680435.96}
+{"type":"restore original text color","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1535634680435.96}
+{"type":"microphone test confirmation","data":{"displayed text":"Did you hear the recording? 
+(Y=Continue / N=Try Again / C=Cancel).","participant 1":"LTP999","experiment":"VFFR"},"time":1535634680435.96}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1535634681085.97}
+{"type":"microphone test end","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1535634681085.97}
+{"type":"press any key prompt","data":{"displayed text":"We will now review the basics of the study, and the experimenter will answer any questions that you have.
+
+1) Words will come onscreen one at a time.
+2) After each word leaves the screen, pause briefly, then speak the word you just saw.
+3) If you began speaking too early, a message will appear onscreen to notify you. Try to minimize the number of trials where this occurs.
+4) You will be given 10-second breaks periodically throughout the session, as well as two longer mid-session breaks.","participant 1":"LTP999","experiment":"VFFR"},"time":1535634681103.57}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1535634681836.45}
+{"type":"press any key prompt","data":{"displayed text":"5) It is very important for you to avoid all unnecessary motion while engaged in the study. 
+6) Please try to avoid blinking from the time that a word appears on the screen until you have spoken the word. 
+7) If you miss a word, just say 'pass' to proceed to the next word.","participant 1":"LTP999","experiment":"VFFR"},"time":1535634681853.54}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1535634682236.59}
+{"type":"press any key prompt","data":{"displayed text":"You are now ready to begin the study! 
+
+If you have any remaining questions, please ask the experimenter now. Otherwise, press RETURN to continue.","participant 1":"LTP999","experiment":"VFFR"},"time":1535634682253.01}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1535634683437.02}
+{"type":"stimulus","data":{"word":"RHINO","index":0,"ltp word number":-1,"practice":true,"participant 1":"LTP999","experiment":"VFFR"},"time":1535634684570.23}
+{"type":"stimulus display","data":{"displayed text":"RHINO","participant 1":"LTP999","experiment":"VFFR"},"time":1535634684570.23}

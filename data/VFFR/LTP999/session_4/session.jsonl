@@ -1,0 +1,124 @@
+{"type":"press any key prompt","data":{"displayed text":"LTP999
+session 4","participant 1":"LTP999","experiment":"VFFR"},"time":1536071989067.92}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536071993735.11}
+{"type":"press any key prompt","data":{"displayed text":"Researcher:
+Please confirm that the 
+impedance window is closed
+and that sync pulses are showing","participant 1":"LTP999","experiment":"VFFR"},"time":1536071993751.52}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536071994484.55}
+{"type":"press any key prompt","data":{"displayed text":"Researcher:
+Please begin the EEG recording now
+and confirm that it is running.","participant 1":"LTP999","experiment":"VFFR"},"time":1536071994501.38}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536071994668.47}
+{"type":"microphone test begin","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536071994668.47}
+{"type":"press any key prompt","data":{"displayed text":"Press the spacebar to record a sound after the beep.","participant 1":"LTP999","experiment":"VFFR"},"time":1536071994701.72}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536071995652.1}
+{"type":"microphone test recording","data":{"displayed text":"Recording...","participant 1":"LTP999","experiment":"VFFR"},"time":1536071995652.1}
+{"type":"text color changed","data":{"new color":"RGBA(1.000, 0.000, 0.000, 1.000)","participant 1":"LTP999","experiment":"VFFR"},"time":1536071995652.1}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072001168.1}
+{"type":"microphone test playing","data":{"displayed text":"Playing...","participant 1":"LTP999","experiment":"VFFR"},"time":1536072002168.43}
+{"type":"text color changed","data":{"new color":"RGBA(0.000, 1.000, 0.000, 1.000)","participant 1":"LTP999","experiment":"VFFR"},"time":1536072002168.43}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072007184.12}
+{"type":"restore original text color","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072007184.12}
+{"type":"microphone test confirmation","data":{"displayed text":"Did you hear the recording? 
+(Y=Continue / N=Try Again / C=Cancel).","participant 1":"LTP999","experiment":"VFFR"},"time":1536072007184.12}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072033834.73}
+{"type":"microphone test end","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072033834.73}
+{"type":"press any key prompt","data":{"displayed text":"We will now review the basics of the study, and the experimenter will answer any questions that you have.
+
+1) Words will come onscreen one at a time.
+2) After each word leaves the screen, pause briefly, then speak the word you just saw.
+3) If you began speaking too early, a message will appear onscreen to notify you. Try to minimize the number of trials where this occurs.
+4) You will be given 10-second breaks periodically throughout the session, as well as two longer mid-session breaks.","participant 1":"LTP999","experiment":"VFFR"},"time":1536072033850.64}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072083546.12}
+{"type":"press any key prompt","data":{"displayed text":"5) It is very important for you to avoid all unnecessary motion while engaged in the study. 
+6) Please try to avoid blinking from the time that a word appears on the screen until you have spoken the word. 
+7) If you miss a word, just say 'pass' to proceed to the next word.","participant 1":"LTP999","experiment":"VFFR"},"time":1536072083562.9}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072101146.13}
+{"type":"press any key prompt","data":{"displayed text":"You are now ready to begin the study! 
+
+If you have any remaining questions, please ask the experimenter now. Otherwise, press RETURN to continue.","participant 1":"LTP999","experiment":"VFFR"},"time":1536072101162.59}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072109412.33}
+{"type":"stimulus","data":{"word":"RHINO","index":0,"ltp word number":-1,"practice":true,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072110962.06}
+{"type":"stimulus display","data":{"displayed text":"RHINO","participant 1":"LTP999","experiment":"VFFR"},"time":1536072110962.06}
+{"type":"stimulus cleared","data":{"word":"RHINO","index":0,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072112712.15}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072112712.15}
+{"type":"recall start","data":{"word":"RHINO","index":0,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072112712.15}
+{"type":"recall stop","data":{"word":"RHINO","index":0,"too_fast":true,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072115712.89}
+{"type":"beep start","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072115712.89}
+{"type":"beep stop","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072116229.56}
+{"type":"stimulus","data":{"word":"BEAM","index":1,"ltp word number":-1,"practice":true,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072117778.18}
+{"type":"stimulus display","data":{"displayed text":"BEAM","participant 1":"LTP999","experiment":"VFFR"},"time":1536072117778.18}
+{"type":"stimulus cleared","data":{"word":"BEAM","index":1,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072119045.42}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072119045.42}
+{"type":"recall start","data":{"word":"BEAM","index":1,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072119045.42}
+{"type":"recall stop","data":{"word":"BEAM","index":1,"too_fast":true,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072122045.94}
+{"type":"beep start","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072122045.94}
+{"type":"beep stop","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072122546.06}
+{"type":"stimulus","data":{"word":"DOG","index":2,"ltp word number":480,"practice":true,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072123712.61}
+{"type":"stimulus display","data":{"displayed text":"DOG","participant 1":"LTP999","experiment":"VFFR"},"time":1536072123712.61}
+{"type":"stimulus cleared","data":{"word":"DOG","index":2,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072125312.04}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072125312.04}
+{"type":"recall start","data":{"word":"DOG","index":2,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072125312.04}
+{"type":"recall stop","data":{"word":"DOG","index":2,"too_fast":true,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072128312.53}
+{"type":"beep start","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072128312.53}
+{"type":"beep stop","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072128812.79}
+{"type":"stimulus","data":{"word":"ICON","index":3,"ltp word number":-1,"practice":true,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072129879.24}
+{"type":"stimulus display","data":{"displayed text":"ICON","participant 1":"LTP999","experiment":"VFFR"},"time":1536072129879.24}
+{"type":"stimulus cleared","data":{"word":"ICON","index":3,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072131162.03}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072131162.03}
+{"type":"recall start","data":{"word":"ICON","index":3,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072131162.03}
+{"type":"recall stop","data":{"word":"ICON","index":3,"too_fast":true,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072134178.62}
+{"type":"beep start","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072134178.62}
+{"type":"beep stop","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072134679.33}
+{"type":"stimulus","data":{"word":"FLOOD","index":4,"ltp word number":-1,"practice":true,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072135811.78}
+{"type":"stimulus display","data":{"displayed text":"FLOOD","participant 1":"LTP999","experiment":"VFFR"},"time":1536072135811.78}
+{"type":"stimulus cleared","data":{"word":"FLOOD","index":4,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072137179.09}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072137179.09}
+{"type":"recall start","data":{"word":"FLOOD","index":4,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072137179.09}
+{"type":"recall stop","data":{"word":"FLOOD","index":4,"too_fast":true,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072140195.67}
+{"type":"beep start","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072140195.67}
+{"type":"beep stop","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072140711.71}
+{"type":"stimulus","data":{"word":"MIRROR","index":5,"ltp word number":899,"practice":true,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072142095.93}
+{"type":"stimulus display","data":{"displayed text":"MIRROR","participant 1":"LTP999","experiment":"VFFR"},"time":1536072142095.93}
+{"type":"stimulus cleared","data":{"word":"MIRROR","index":5,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072143844.92}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072143844.92}
+{"type":"recall start","data":{"word":"MIRROR","index":5,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072143844.92}
+{"type":"recall stop","data":{"word":"MIRROR","index":5,"too_fast":true,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072146845.74}
+{"type":"beep start","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072146845.74}
+{"type":"beep stop","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072147345.77}
+{"type":"stimulus","data":{"word":"COTTON","index":6,"ltp word number":385,"practice":true,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072148512.55}
+{"type":"stimulus display","data":{"displayed text":"COTTON","participant 1":"LTP999","experiment":"VFFR"},"time":1536072148512.55}
+{"type":"stimulus cleared","data":{"word":"COTTON","index":6,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072150012.45}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072150012.45}
+{"type":"recall start","data":{"word":"COTTON","index":6,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072150012.45}
+{"type":"recall stop","data":{"word":"COTTON","index":6,"too_fast":true,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072153029.03}
+{"type":"beep start","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072153029.03}
+{"type":"beep stop","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072153529.14}
+{"type":"stimulus","data":{"word":"IMAGE","index":7,"ltp word number":-1,"practice":true,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072155061.85}
+{"type":"stimulus display","data":{"displayed text":"IMAGE","participant 1":"LTP999","experiment":"VFFR"},"time":1536072155061.85}
+{"type":"stimulus cleared","data":{"word":"IMAGE","index":7,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072156445.66}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072156445.66}
+{"type":"recall start","data":{"word":"IMAGE","index":7,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072156445.66}
+{"type":"recall stop","data":{"word":"IMAGE","index":7,"too_fast":true,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072159461.47}
+{"type":"beep start","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072159461.47}
+{"type":"beep stop","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072159962.34}
+{"type":"stimulus","data":{"word":"RING","index":8,"ltp word number":1193,"practice":true,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072161062.57}
+{"type":"stimulus display","data":{"displayed text":"RING","participant 1":"LTP999","experiment":"VFFR"},"time":1536072161062.57}
+{"type":"stimulus cleared","data":{"word":"RING","index":8,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072162394.82}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072162394.82}
+{"type":"recall start","data":{"word":"RING","index":8,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072162394.82}
+{"type":"recall stop","data":{"word":"RING","index":8,"too_fast":true,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072165394.82}
+{"type":"beep start","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072165394.82}
+{"type":"beep stop","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072165895.9}
+{"type":"stimulus","data":{"word":"VIOLIN","index":9,"ltp word number":1571,"practice":true,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072167011.97}
+{"type":"stimulus display","data":{"displayed text":"VIOLIN","participant 1":"LTP999","experiment":"VFFR"},"time":1536072167011.97}
+{"type":"stimulus cleared","data":{"word":"VIOLIN","index":9,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072168612.32}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072168612.32}
+{"type":"recall start","data":{"word":"VIOLIN","index":9,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072168612.32}
+{"type":"recall stop","data":{"word":"VIOLIN","index":9,"too_fast":true,"participant 1":"LTP999","experiment":"VFFR"},"time":1536072171612.35}
+{"type":"beep start","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072171612.35}
+{"type":"beep stop","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072172129.13}
+{"type":"press any key prompt","data":{"displayed text":"The practice period is complete.  Press RETURN to begin your session.","participant 1":"LTP999","experiment":"VFFR"},"time":1536072172144.98}
+{"type":"text display cleared","data":{"participant 1":"LTP999","experiment":"VFFR"},"time":1536072177678.66}
+{"type":"block count","data":{"displayed text":"Block 1/24","participant 1":"LTP999","experiment":"VFFR"},"time":1536072177678.66}

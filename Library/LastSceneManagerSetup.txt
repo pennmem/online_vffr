@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/vocalization_control.unity
+  isLoaded: 1
+  isActive: 1
