@@ -1,0 +1,23 @@
+{"type":"press any key prompt","data":{"displayed text":"LTP423
+session 0","participant 1":"LTP423","experiment":"VFFR"},"time":1581711726478.28}
+{"type":"text display cleared","data":{"participant 1":"LTP423","experiment":"VFFR"},"time":1581711727979.02}
+{"type":"press any key prompt","data":{"displayed text":"Researcher:
+Please confirm that the 
+impedance window is closed
+and that sync pulses are showing","participant 1":"LTP423","experiment":"VFFR"},"time":1581711728020.75}
+{"type":"text display cleared","data":{"participant 1":"LTP423","experiment":"VFFR"},"time":1581711753643.86}
+{"type":"press any key prompt","data":{"displayed text":"Researcher:
+Please begin the EEG recording now
+and confirm that it is running.","participant 1":"LTP423","experiment":"VFFR"},"time":1581711753685.81}
+{"type":"text display cleared","data":{"participant 1":"LTP423","experiment":"VFFR"},"time":1581711852444.74}
+{"type":"press any key prompt","data":{"displayed text":"I couldn't find /User/exp/bin/check_eegfile.py .  Please make sure it exists and then press RETURN to try again.","participant 1":"LTP423","experiment":"VFFR"},"time":1581711852486.24}
+{"type":"text display cleared","data":{"participant 1":"LTP423","experiment":"VFFR"},"time":1581711857277.71}
+{"type":"press any key prompt","data":{"displayed text":"I couldn't find /User/exp/bin/check_eegfile.py .  Please make sure it exists and then press RETURN to try again.","participant 1":"LTP423","experiment":"VFFR"},"time":1581711857318.67}
+{"type":"text display cleared","data":{"participant 1":"LTP423","experiment":"VFFR"},"time":1581711857944.28}
+{"type":"press any key prompt","data":{"displayed text":"I couldn't find /User/exp/bin/check_eegfile.py .  Please make sure it exists and then press RETURN to try again.","participant 1":"LTP423","experiment":"VFFR"},"time":1581711857986.15}
+{"type":"text display cleared","data":{"participant 1":"LTP423","experiment":"VFFR"},"time":1581711858401.92}
+{"type":"press any key prompt","data":{"displayed text":"I couldn't find /User/exp/bin/check_eegfile.py .  Please make sure it exists and then press RETURN to try again.","participant 1":"LTP423","experiment":"VFFR"},"time":1581711858444}
+{"type":"text display cleared","data":{"participant 1":"LTP423","experiment":"VFFR"},"time":1581711858694.11}
+{"type":"press any key prompt","data":{"displayed text":"I couldn't find /User/exp/bin/check_eegfile.py .  Please make sure it exists and then press RETURN to try again.","participant 1":"LTP423","experiment":"VFFR"},"time":1581711858735.48}
+{"type":"text display cleared","data":{"participant 1":"LTP423","experiment":"VFFR"},"time":1581711858860.95}
+{"type":"press any key prompt","data":{"displayed text":"I couldn't find /User/exp/bin/check_eegfile.py .  Please make sure it exists and then press RETURN to try again.","participant 1":"LTP423","experiment":"VFFR"},"time":1581711858902.32}

@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿#define DEBUG
+
+using System;
+using System.Diagnostics;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -35,26 +39,30 @@ public class EditableExperiment : MonoBehaviour
         "\n\n\nWe will now take some time\nto readjust the electrodes.\nWhen it is time to continue,\npress SPACE and RETURN.\n\n\n";
 
     private const string EXPERIMENTER_MESSAGE =
-        "Researcher: Please confirm that the impedance window is closed and that sync pulses are showing.";
+        "\n\n\nResearcher: Please confirm that the impedance window is closed and that sync pulses are showing.\n\n\n";
 
     private const string FIRST_INITIAL_FREE_RECALL_MESSAGE =
-        "\n\n\nWe would like you to recall as many words as you can remember from all previous sessions, in any order. You will have ten minutes to perform this recall task as soon as the prompt appears ('******'). \n\nAs you attempt to recall these words, other words that did not appear in previous sessions may come to mind. Please go ahead and say these words aloud even if you believe they have not been presented or if you have already said them during this recall period.\n\n\n";
+        "\n\n\nWe would like you to recall as many words as you can remember from all previous sessions, in any order. You will have {0} minutes to perform this recall task as soon as the prompt appears ('******'). \n\nAs you attempt to recall these words, other words that did not appear in previous sessions may come to mind. Please go ahead and say these words aloud even if you believe they have not been presented or if you have already said them during this recall period.\n\n\n";
 
     private const string SECOND_INITIAL_FREE_RECALL_MESSAGE = 
         "\n\n\nYou will receive a recall bonus of up to $5 in addition to your blink and trial performance bonuses. \n\nThe recall bonus will increase with the number of words from the previous sessions you recall. \nIt will not be affected by any words you say that were not shown in previous sessions or that you have already recalled.\n\nPress RETURN to begin.\n\n\n";
 
-    private const string FIRST_FINAL_FREE_RECALL_MESSAGE = ""; 
+    private const string FIRST_FINAL_FREE_RECALL_MESSAGE = 
+        "\n\n\nWe would like you to recall as many words as you can remember from all previous sessions, in any order. You will have {0} minutes to perform this recall task as soon as the prompt appears ('******'). \n\nAs you attempt to recall these words, other words that did not appear in previous sessions may come to mind. Please go ahead and say these words aloud even if you believe they have not been presented or if you have already said them during this recall period.\n\n\n";
 
-    private const string SECOND_FINAL_FREE_RECALL_MESSAGE = "";
+    private const string SECOND_FINAL_FREE_RECALL_MESSAGE = 
+        "\n\n\nYou will receive a recall bonus of up to $5 in addition to your blink and trial performance bonuses. \n\nThe recall bonus will increase with the number of words from the previous sessions you recall. \nIt will not be affected by any words you say that were not shown in previous sessions or that you have already recalled.\n\nPress RETURN to begin.\n\n\n";
 
-    private const string FILE_USER = "/Users/exp/";
+    private const string PRACTICE_MESSAGE = "\n\n\nThe practice period is complete. Press RETURN to begin your session.\n\n\n";
 
-    private const float MIN_IFR_TIME = 10.0f; 
-    private const float MIN_FFR_TIME = 20.0f;
-    private const float IFR_TIMEOUT = 5.0f;
-    private const float FFR_TIMEOUT = 5.0f;
-    private const float MAX_IFR_TIME = 40.0f;
-    private const float MAX_FFR_TIME = 40.0f;
+    private const string PARTICIPANT_CHECK_MESSAGE = "{0}\n{1}";
+
+    private const int MIN_IFR_TIME = 600; 
+    private const int MIN_FFR_TIME = 600;
+    private const int IFR_INCREMENT = 120;
+    private const int FFR_INCREMENT = 120;
+
+    private string[] practice_list = {"RHINO", " BEAM", "DOG", "ICON", "FLOOD", "MIRROR", "COTTON", "IMAGE", "RING", "VIOLIN"};
 
     void Start()
     {
@@ -67,11 +75,40 @@ public class EditableExperiment : MonoBehaviour
     private void LoadNumberingPool()
     {
         numberingWords = new Dictionary<string, int>();
-        string[] numberingPool = GetWordpoolLines("wasnorm_wordpool", false);
+        string[] numberingPool = GetWordpoolLines("VFFR_wordpool", false);
         for (int i = 1; i <= numberingPool.Length; i++)
         {
             numberingWords.Add(numberingPool[i - 1], i);
         }
+    }
+
+    private IEnumerator CheckEEG() {
+         var processInfo = new ProcessStartInfo("python", "/Users/exp/bin/check_eegfile.py");
+         processInfo.CreateNoWindow = true;
+         processInfo.UseShellExecute = false;
+ 
+         var process = Process.Start(processInfo);
+
+#if (DEBUG)
+        yield break;
+#endif
+ 
+         bool isDone = false;
+         while(!isDone) {
+            
+            process.WaitForExit();
+
+            if(process.ExitCode == 0) {
+                isDone = true;
+            }
+            else {
+                textDisplayer.DisplayText("eeg not found", "EEG file not found. Please ensure that you have started the EEG recording.");
+            }
+
+            yield return isDone;
+         }
+
+         process.Close();
     }
 
     private int GetWordNumber(string word)
@@ -80,19 +117,19 @@ public class EditableExperiment : MonoBehaviour
             word = word.Substring(0, word.Length - 1);
         if (numberingWords.ContainsKey(word))
         {
-            Debug.Log(numberingWords[word]);
+            UnityEngine.Debug.Log(numberingWords[word]);
             return numberingWords[word];
         }
         else
         {
-            Debug.Log("-1");
+            UnityEngine.Debug.Log("-1");
             return -1;
         }
     }
 
     private void LoadWords()
     {
-        words = GetWordpoolLines("wordpool_en", true);
+        words = GetWordpoolLines("VFFR_wordpool", true);
     }
 
     private IEnumerator RunExperiment()
@@ -101,7 +138,7 @@ public class EditableExperiment : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         textDisplayer.ClearText();
-        Debug.Log(inputField.IsActive());
+        UnityEngine.Debug.Log(inputField.IsActive());
 
         inputField.gameObject.SetActive(true);
         inputField.Select();
@@ -125,34 +162,62 @@ public class EditableExperiment : MonoBehaviour
         inputField.gameObject.SetActive(false);
         Cursor.visible = false;
 
+        // TODO: logging
+
+        yield return PressAnyKey(string.Format(PARTICIPANT_CHECK_MESSAGE, inputField.text, UnityEPL.GetSessionNumber().ToString()), new KeyCode[] { KeyCode.Return}, fullscreenTextDisplayer);
+
+        yield return PressAnyKey(EXPERIMENTER_MESSAGE, new KeyCode[] {KeyCode.Return}, fullscreenTextDisplayer);
+        yield return CheckEEG();
         yield return DoMicrophoneTest();
+
+        yield return ShowImmediateRecallInstructions(); 
 
         // Initial Free Recall
         if(UnityEPL.GetSessionNumber() >= 5) {
-            yield return ShowRecallInstructions(); 
 
             // do initial free recall
             yield return DoInitialRecall();
-
         }
 
         yield return WriteBatchLstFiles();
 
-        // TODO: why 10?
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < practice_list.Length; i++) {
+            yield return PerformTrial(practice_list, i, true);
+        }
+
+        yield return PressAnyKey(PRACTICE_MESSAGE, new KeyCode[] {KeyCode.Return}, fullscreenTextDisplayer);
+
+        for (int i = 0; i < words.Length; i++)
         {
+            yield return DoListBreaks(i, words.Length / 24, words.Length / 3, words.Length);
             yield return PerformTrial(words, i, false);
         }
 
         // Final Free Recall
         if(UnityEPL.GetSessionNumber() >= 10) {
-
+            yield return PressAnyKey(BREAK_MESSAGE, new KeyCode[] {KeyCode.Return, KeyCode.Space}, fullscreenTextDisplayer);
             //show prompt, start recall period
             yield return DoFinalRecall();
         }
 
         // over
         textDisplayer.DisplayText("end message", "Yay, the session is over!");
+    }
+
+    private IEnumerator DoListBreaks(int index, int listLength, int sectionLength, int sessionLength) {
+        if(index % sectionLength == 0 && index > 0) {
+            scriptedEventReporter.ReportScriptedEvent("break start", new Dictionary<string, object>());
+            yield return PressAnyKey(BREAK_MESSAGE, new KeyCode[] {KeyCode.Return, KeyCode.Space}, fullscreenTextDisplayer);
+        }
+
+        if(index % listLength == 0) {
+            int block = index / listLength;
+
+            textDisplayer.DisplayText("trial end", "Block " + block.ToString() + "/24");
+            yield return new WaitForSeconds(5);
+
+            yield return DoCountdown();
+        }
     }
 
     private IEnumerator DoCountdown()
@@ -165,19 +230,12 @@ public class EditableExperiment : MonoBehaviour
         }
     }
 
-    private IEnumerator ShowRecallInstructions() {
-        yield return PressAnyKey(FIRST_INITIAL_FREE_RECALL_MESSAGE, new KeyCode[] { KeyCode.Return }, fullscreenTextDisplayer);
-        yield return PressAnyKey(SECOND_INITIAL_FREE_RECALL_MESSAGE, new KeyCode[] { KeyCode.Return }, fullscreenTextDisplayer);
-
-        if(UnityEPL.GetSessionNumber() >= 10) {
-            yield return PressAnyKey(FIRST_FINAL_FREE_RECALL_MESSAGE, new KeyCode[] { KeyCode.Return }, fullscreenTextDisplayer);
-            yield return PressAnyKey(SECOND_FINAL_FREE_RECALL_MESSAGE, new KeyCode[] { KeyCode.Return }, fullscreenTextDisplayer);
-        }
+    private IEnumerator ShowImmediateRecallInstructions() {
+        yield return PressAnyKey(FIRST_INSTRUCTIONS_MESSAGE, new KeyCode[] { KeyCode.Return }, fullscreenTextDisplayer);
+        yield return PressAnyKey(SECOND_INSTRUCTIONS_MESSAGE, new KeyCode[] { KeyCode.Return }, fullscreenTextDisplayer);
     }
 
-    private IEnumerator WaitForRecalTimeout(float min_time, float max_time, float timeout, float sleep=5.0f) {
-        float MIN_RECALL_TIME = 30.0f; // minutes
-
+    private IEnumerator WaitForRecallTimeout(float min_time, float max_time, float timeout, float sleep=5.0f) {
         float recallStartTime = Time.time;
         float lastSpokenTime = Time.time;
         while((Time.time < recallStartTime + min_time 
@@ -194,13 +252,19 @@ public class EditableExperiment : MonoBehaviour
 
     private IEnumerator DoFinalRecall()
     {
+        int recTime = MIN_FFR_TIME + FFR_INCREMENT*Math.Min(Math.Max(UnityEPL.GetSessionNumber() - 9, 0), 10);
+        scriptedEventReporter.ReportScriptedEvent("final free recall instructions", new Dictionary<string, object>());
+        yield return PressAnyKey(string.Format(FIRST_FINAL_FREE_RECALL_MESSAGE, (recTime / 60).ToString()), new KeyCode[] { KeyCode.Return }, fullscreenTextDisplayer);
+        yield return PressAnyKey(SECOND_FINAL_FREE_RECALL_MESSAGE, new KeyCode[] { KeyCode.Return }, fullscreenTextDisplayer);
+
         //final recall
         string wav_path = System.IO.Path.Combine(UnityEPL.GetDataPath(), "ffr.wav");
         soundRecorder.StartRecording();
         scriptedEventReporter.ReportScriptedEvent("final recall start", new Dictionary<string, object>());
         textDisplayer.DisplayText("final recall prompt", "******");
 
-        yield return WaitForRecalTimeout(MIN_FFR_TIME, MAX_FFR_TIME, FFR_TIMEOUT);
+        // yield return WaitForRecallTimeout(MIN_FFR_TIME, MAX_FFR_TIME, FFR_TIMEOUT);
+        yield return new WaitForSeconds(recTime);
 
         textDisplayer.ClearText();
         scriptedEventReporter.ReportScriptedEvent("final recall stop", new Dictionary<string, object>());
@@ -208,17 +272,23 @@ public class EditableExperiment : MonoBehaviour
     }
 
     private IEnumerator DoInitialRecall()
-    {
+    {   
+        int recTime = MIN_IFR_TIME + IFR_INCREMENT*Math.Min(Math.Max(UnityEPL.GetSessionNumber() - 9, 0), 10);
+        scriptedEventReporter.ReportScriptedEvent("initial free recall instructions", new Dictionary<string, object>());
+        yield return PressAnyKey(string.Format(FIRST_INITIAL_FREE_RECALL_MESSAGE, (recTime / 60).ToString()), new KeyCode[] { KeyCode.Return }, fullscreenTextDisplayer);
+        yield return PressAnyKey(SECOND_INITIAL_FREE_RECALL_MESSAGE, new KeyCode[] { KeyCode.Return }, fullscreenTextDisplayer);
+
         //final recall
         string wav_path = System.IO.Path.Combine(UnityEPL.GetDataPath(), "ifr.wav");
         soundRecorder.StartRecording();
         scriptedEventReporter.ReportScriptedEvent("initial recall start", new Dictionary<string, object>());
         textDisplayer.DisplayText("initial recall prompt", "******");
         
-        yield return WaitForRecalTimeout(MIN_IFR_TIME, MAX_IFR_TIME, IFR_TIMEOUT);
+        // yield return WaitForRecallTimeout(MIN_IFR_TIME, MAX_IFR_TIME, IFR_TIMEOUT);
+        yield return new WaitForSeconds(recTime);
 
         textDisplayer.ClearText();
-        scriptedEventReporter.ReportScriptedEvent("final recall stop", new Dictionary<string, object>());
+        scriptedEventReporter.ReportScriptedEvent("initial recall stop", new Dictionary<string, object>());
         soundRecorder.StopRecording(wav_path);
     }
        
@@ -274,7 +344,7 @@ public class EditableExperiment : MonoBehaviour
         {
             //write .lst
             string lst_path = System.IO.Path.Combine(UnityEPL.GetDataPath(), i.ToString() + ".lst");
-            Debug.Log(lst_path);
+            UnityEngine.Debug.Log(lst_path);
             WriteAllLinesNoExtraNewline(lst_path, words[i]);
             yield return CreateLanguageModel(lst_path);
         }
@@ -371,14 +441,13 @@ public class EditableExperiment : MonoBehaviour
         float RECALL_EXTRA_LENGTH = 0.5f;
 
         //isi
-        yield return new WaitForSeconds(Random.Range(FIRST_ISI_MIN, FIRST_ISI_MAX));
+        yield return new WaitForSeconds(UnityEngine.Random.Range(FIRST_ISI_MIN, FIRST_ISI_MAX));
 
         //stimulus
         string stimulus = trial_words[word_index];
-        Debug.Log(stimulus);
         scriptedEventReporter.ReportScriptedEvent("stimulus", new Dictionary<string, object> () { { "word", stimulus }, { "index", word_index }, {"ltp word number", GetWordNumber(stimulus)}, { "practice", practice } });
         textDisplayer.DisplayText("stimulus display", stimulus);
-        yield return new WaitForSeconds(Random.Range(STIMULUS_DISPLAY_LENGTH_MIN, STIMULUS_DISPLAY_LENGTH_MAX));
+        yield return new WaitForSeconds(UnityEngine.Random.Range(STIMULUS_DISPLAY_LENGTH_MIN, STIMULUS_DISPLAY_LENGTH_MAX));
         scriptedEventReporter.ReportScriptedEvent("stimulus cleared", new Dictionary<string, object>() { { "word", stimulus }, { "index", word_index } });
         textDisplayer.ClearText();
 
@@ -413,7 +482,6 @@ public class EditableExperiment : MonoBehaviour
         }
         scriptedEventReporter.ReportScriptedEvent("recall stop", new Dictionary<string, object>() { { "word", stimulus }, { "index", word_index }, { "too_fast", badTrial} });
 
-
         //stop recording and write .wav
         string wav_path = System.IO.Path.Combine(UnityEPL.GetDataPath(), word_index.ToString() + ".wav");
         if (practice)
@@ -434,7 +502,6 @@ public class EditableExperiment : MonoBehaviour
         string lst_path = wav_path.Split('.')[0] + ".lst";
         string tmp_path = wav_path.Split('.')[0];
         yield return KaldiSpeechRecognition(kaldi_dir, wav_path, tmp_path);
-
     }
 
     private string[] GetWordpoolLines(string path, bool shuffle)
